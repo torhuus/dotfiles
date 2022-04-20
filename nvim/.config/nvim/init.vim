@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/limelight.vim'
 	" [LSP & Autocompletion]
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/cmp-nvim-lsp'
@@ -69,7 +69,7 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 lua require('torhuus')
-packadd nvim-treesitter
+"packadd nvim-treesitter
 
 " ~~~ [COLORSCHEME AND COLORS] 
 
