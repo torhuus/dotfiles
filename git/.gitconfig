@@ -1,3 +1,10 @@
 [user]
 	email = tor@huus.me
 	name = Tor Einar Huus
+[core]
+	excludesfile = ~/.gitignore_global
+    editor = nvim
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
