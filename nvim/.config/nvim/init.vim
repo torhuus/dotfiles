@@ -68,8 +68,11 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'vimwiki/vimwiki' "Create a personal wiki/diary/documentation
 call plug#end()
 
+
+" LUA import
+
 lua require('torhuus')
-"packadd nvim-treesitter
+
 
 " ~~~ [COLORSCHEME AND COLORS] 
 
@@ -82,21 +85,31 @@ endif
 
 
 " ~~~ [KEYMAPPING]
+
 inoremap jk <Esc> 
 nnoremap <silent> <leader>h :nohls<CR>
 
+
 " FZF
+
 nnoremap <silent> <leader>f :Telescope find_files<CR>
 nnoremap <silent> <leader>b :Telescope buffers<CR>
 nnoremap <silent> <leader>g :Telescope live_grep<CR>
 
+
 " Goyo maps
+
 nnoremap <leader>! :Goyo<CR>
+
+
 " Limelight for goyo
+
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+
 " Git stuff
+
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
