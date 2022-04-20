@@ -105,6 +105,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+editor=nvim
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -115,12 +116,9 @@ fi
 #     . /etc/bash_completion
 #   fi
 # fi
-. "$HOME/.cargo/env"
-. /home/tor/z.sh
-. /home/tor/z.sh
 
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-export PATH="$PATH:/opt/mssql-tools18/bin"
+#export PATH="$PATH:/opt/mssql-tools18/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
