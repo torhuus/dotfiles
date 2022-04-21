@@ -38,8 +38,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lualine/lualine.nvim'
 	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 	Plug 'akinsho/bufferline.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'Yggdroot/indentLine'
+	"Plug 'kyazdani42/nvim-web-devicons'
+	"Plug 'Yggdroot/indentLine'
 	" [Navigation & search]
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'nvim-lua/plenary.nvim'
