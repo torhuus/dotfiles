@@ -44,14 +44,15 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'kyazdani42/nvim-tree.lua'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 	Plug 'airblade/vim-rooter'
 	" [Focused writing]
 	Plug 'junegunn/goyo.vim'
 	Plug 'junegunn/limelight.vim'
 	" [LSP & Autocompletion]
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'hrsh7th/nvim-cmp'
@@ -59,6 +60,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'onsails/lspkind-nvim'
+	Plug 'windwp/nvim-autopairs'
 	" [Git management]
 	Plug 'lewis6991/gitsigns.nvim'	
 	Plug 'airblade/vim-gitgutter'
@@ -87,12 +89,12 @@ endif
 " ~~~ [KEYMAPPING]
 
 inoremap jk <Esc> 
-nnoremap <silent> <leader>h :nohls<CR>
+nnoremap <silent> <leader>hh :nohls<CR>
 
 
 " FZF
 
-nnoremap <silent> <leader>f :Telescope find_files<CR>
+nnoremap <silent> <leader><Space> :Telescope find_files<CR>
 nnoremap <silent> <leader>b :Telescope buffers<CR>
 nnoremap <silent> <leader>g :Telescope live_grep<CR>
 
