@@ -67,7 +67,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-fugitive'
 	" [Disabled plugins]
 	"Plug 'dense-analysis/ale'
-	"Plug 'vimwiki/vimwiki' "Create a personal wiki/diary/documentation
+	Plug 'vimwiki/vimwiki' "Create a personal wiki/diary/documentation
 call plug#end()
 
 
