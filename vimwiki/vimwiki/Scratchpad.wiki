@@ -1,0 +1,6 @@
+Scratchpad to hold temporary notes, should ideally be automated to create section with date on each entry.
+
+i.e. 
+--- 24APR22 ---
+NOTES HERE
+--- --- --- --- ---

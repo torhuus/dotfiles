@@ -29,6 +29,8 @@ set shortmess+=c
 set signcolumn=yes
 set updatetime=250
 set encoding=UTF-8
+filetype plugin on
+syntax on
 
 
 " ~~~ [PLUGINS]
