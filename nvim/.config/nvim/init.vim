@@ -29,8 +29,8 @@ set shortmess+=c
 set signcolumn=yes
 set updatetime=250
 set encoding=UTF-8
-filetype plugin on
-syntax on
+"filetype plugin on
+"syntax on
 
 
 " ~~~ [PLUGINS]
@@ -54,21 +54,14 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/limelight.vim'
 	" [LSP & Autocompletion]
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'williamboman/nvim-lsp-installer'
+	Plug 'glepnir/lspsaga.nvim'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'jose-elias-alvarez/null-ls.nvim'
-	Plug 'hrsh7th/nvim-cmp'
-	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'L3MON4D3/LuaSnip'
-	Plug 'saadparwaiz1/cmp_luasnip'
-	Plug 'onsails/lspkind-nvim'
 	Plug 'windwp/nvim-autopairs'
 	" [Git management]
 	Plug 'lewis6991/gitsigns.nvim'	
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	" [Disabled plugins]
-	"Plug 'dense-analysis/ale'
 	Plug 'vimwiki/vimwiki' "Create a personal wiki/diary/documentation
 call plug#end()
 

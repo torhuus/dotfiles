@@ -2,5 +2,12 @@ Scratchpad to hold temporary notes, should ideally be automated to create sectio
 
 i.e. 
 --- 24APR22 ---
-NOTES HERE
+
+Todo-list:
+* Prep food for upcoming week
+* Apply for 1 dev job
+* Start work on front-page of torhuus.com <> brianlovin/paul stammy
+* Look at upcoming week, and set tasks and time blocks for each day
+
+
 --- --- --- --- ---
