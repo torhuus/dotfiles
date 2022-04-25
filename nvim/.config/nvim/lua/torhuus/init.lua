@@ -1,7 +1,0 @@
-require('torhuus.telescope')
-require('torhuus.treesitter')
-require('torhuus.lsp')
-require('torhuus.bufferline')
-require('torhuus.lualine')
-require('torhuus.theme')
-require('torhuus.autopairs')

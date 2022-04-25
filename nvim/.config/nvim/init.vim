@@ -1,115 +1,152 @@
-" Tor Einar Huus' NVIM config
+" Fundamentals "{{{
+" ---------------------------------------------------------------------
 
-" ~~~ [GENERAL]
+" init autocmd
+autocmd!
+" set script encoding
+scriptencoding utf-8
+" stop loading config if it's on tiny or small
+if !1 | finish | endif
 
-let mapleader = " "
-
-set completeopt=menuone,noinsert,noselect
-set mouse=a
 set nocompatible
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set smartindent
-set scrolloff=999
 set number relativenumber
-set ignorecase
-set numberwidth=1
-set noswapfile
-set splitbelow
-set splitright
-set smartcase
-set incsearch
-set diffopt+=vertical
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=1
-set shortmess+=c
-set signcolumn=yes
-set updatetime=250
-set encoding=UTF-8
-"filetype plugin on
-"syntax on
-
-
-" ~~~ [PLUGINS]
-
-call plug#begin('~/.config/nvim/plugged')
-	" [Look & feel]
-	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-	Plug 'akinsho/bufferline.nvim'
-	"Plug 'kyazdani42/nvim-web-devicons'
-	"Plug 'Yggdroot/indentLine'
-	" [Navigation & search]
-	Plug 'christoomey/vim-tmux-navigator'
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'kyazdani42/nvim-tree.lua'
-	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'airblade/vim-rooter'
-	" [Focused writing]
-	Plug 'junegunn/goyo.vim'
-	Plug 'junegunn/limelight.vim'
-	" [LSP & Autocompletion]
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'glepnir/lspsaga.nvim'
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'windwp/nvim-autopairs'
-	" [Git management]
-	Plug 'lewis6991/gitsigns.nvim'	
-	Plug 'airblade/vim-gitgutter'
-	Plug 'tpope/vim-fugitive'
-	" [Disabled plugins]
-	Plug 'vimwiki/vimwiki' "Create a personal wiki/diary/documentation
-call plug#end()
-
-
-" LUA import
-
-lua require('torhuus')
-
-
-" ~~~ [COLORSCHEME AND COLORS] 
-
-colorscheme tokyonight
+syntax enable
+set fileencodings=utf-8,sjis,euc-jp,latin
+set encoding=utf-8
+set title
+set autoindent
 set background=dark
+set nobackup
+set hlsearch
+set incsearch
+set showcmd
+set cmdheight=1
+set laststatus=2
+set scrolloff=10
+set expandtab
+"let loaded_matchparen = 1
+set shell=fish
+set backupskip=/tmp/*,/private/tmp/*
 
-if (has("termguicolors"))
-	set termguicolors
+" incremental substitution (neovim)
+if has('nvim')
+  set inccommand=split
 endif
 
+" Suppress appending <PasteStart> and <PasteEnd> when pasting
+set t_BE=
 
-" ~~~ [KEYMAPPING]
+set nosc noru nosm
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+"set showmatch
+" How many tenths of a second to blink when matching brackets
+"set mat=2
+" Ignore case when searching
+set ignorecase
+" Be smart when using tabs ;)
+set smarttab
+" indents
+filetype plugin indent on
+set shiftwidth=2
+set tabstop=2
+set ai "Auto indent
+set si "Smart indent
+set nowrap "No Wrap lines
+set backspace=start,eol,indent
+" Finding files - Search down into subfolders
+set path+=**
+set wildignore+=*/node_modules/*
 
-inoremap jk <Esc> 
-nnoremap <silent> <leader>hh :nohls<CR>
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
 
+" Add asterisks in block comments
+set formatoptions+=r
 
-" FZF
+"}}}
 
-nnoremap <silent> <leader><Space> :Telescope find_files<CR>
-nnoremap <silent> <leader>b :Telescope buffers<CR>
-nnoremap <silent> <leader>g :Telescope live_grep<CR>
+" Highlights "{{{
+" ---------------------------------------------------------------------
+set cursorline
+"set cursorcolumn
 
+" Set cursor line color on visual mode
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
-" Goyo maps
+highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
-nnoremap <leader>! :Goyo<CR>
+augroup BgHighlight
+  autocmd!
+  autocmd WinEnter * set cul
+  autocmd WinLeave * set nocul
+augroup END
 
+if &term =~ "screen"
+  autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
+  autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
+endif
 
-" Limelight for goyo
+"}}}
 
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+" File types "{{{
+" ---------------------------------------------------------------------
+" JavaScript
+au BufNewFile,BufRead *.es6 setf javascript
+" TypeScript
+au BufNewFile,BufRead *.tsx setf typescriptreact
+" Markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.mdx set filetype=markdown
+" Flow
+au BufNewFile,BufRead *.flow set filetype=javascript
+" Fish
+au BufNewFile,BufRead *.fish set filetype=fish
 
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
-" Git stuff
+autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '>'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '^'
-let g:gitgutter_sign_modified_removed = '<'
-let g:gitgutter_override_sign_column_highlight = 1
+"}}}
+
+" Imports "{{{
+" ---------------------------------------------------------------------
+runtime ./plug.vim
+if has("unix")
+  let s:uname = system("uname -s")
+  " Do Mac stuff
+  if s:uname == "Darwin\n"
+    runtime ./macos.vim
+  endif
+endif
+if has('win32')
+  runtime ./windows.vim
+endif
+
+runtime ./maps.vim
+"}}}
+
+" Syntax theme "{{{
+" ---------------------------------------------------------------------
+
+" true color
+if exists("&termguicolors") && exists("&winblend")
+  syntax enable
+  set termguicolors
+  set winblend=0
+  set wildoptions=pum
+  set pumblend=5
+  set background=dark
+  colorscheme tokyonight
+endif
+
+"}}}
+
+" Extras "{{{
+" ---------------------------------------------------------------------
+set exrc
+"}}}
+
+" vim: set foldmethod=marker foldlevel=0:
