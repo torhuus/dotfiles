@@ -11,7 +11,7 @@ if !1 | finish | endif
 set nocompatible
 set number relativenumber
 syntax enable
-set fileencodings=utf-8,sjis,euc-jp,latin
+set fileencodings=utf-8
 set encoding=utf-8
 set title
 set autoindent
@@ -22,7 +22,7 @@ set incsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-set scrolloff=10
+set scrolloff=999
 set expandtab
 "let loaded_matchparen = 1
 set shell=fish
@@ -44,7 +44,7 @@ set lazyredraw
 "set mat=2
 " Ignore case when searching
 set ignorecase
-" Be smart when using tabs ;)
+" Use tabs the smart way ;)
 set smarttab
 " indents
 filetype plugin indent on
