@@ -3,7 +3,6 @@ local opts = {
 	backup = false,
 	clipboard = "unnamedplus",
 	cmdheight = 2,
-	completeopt = {"menuone", "noselect"},
 	conceallevel = 0,
 	fileencoding = "utf-8",
 	hlsearch = true,

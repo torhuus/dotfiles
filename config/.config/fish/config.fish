@@ -17,6 +17,8 @@ alias lla "ll -A"
 alias g git
 command -qv nvim && alias vim nvim
 
+alias gtdf "cd ~/.dotfiles/config/.config/nvim"
+
 set -gx EDITOR nvim
 
 alias v=nvim

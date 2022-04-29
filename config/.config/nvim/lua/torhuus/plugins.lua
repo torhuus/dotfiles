@@ -52,6 +52,18 @@ use {'nvim-treesitter/nvim-treesitter',run = ':TSUpdate'}
 -- Telescope/file system management
 use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
 
+-- Autocompletion
+use "hrsh7th/nvim-cmp" -- engine for autocompletion
+use "hrsh7th/cmp-nvim-lsp" -- lsp source for AC
+use "hrsh7th/cmp-buffer" -- buffer source for AC
+use "hrsh7th/cmp-path" -- path source for AC
+
+use {
+    'L3MON4D3/LuaSnip',
+    after = 'nvim-cmp',
+} 
+use "saadparwaiz1/cmp_luasnip"
+
 -- Theme
 use "folke/tokyonight.nvim"
 
