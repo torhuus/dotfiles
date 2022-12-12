@@ -2,10 +2,20 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
+echo "Setting up kitty config"
 # Kitty config setup
 rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
 
+echo "Downloading vim.plug"
+# Install VIM plug
+sh -c 'curl --silent -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+echo "Setting up nvim config"
 # NVIM config setup
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+
+echo "All done. Remember to run :PlugInstall when opening nvim"
