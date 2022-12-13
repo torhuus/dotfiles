@@ -1,0 +1,8 @@
+require('huus/options')
+require('huus/keymaps')
+require('huus/plugin')
+require('huus/plugins.lsp')
+require('huus/plugins.nvim_cmp')
+require('huus/plugins.lualine')
+require('huus/plugins.blankline')
+require('huus/plugins.treesitter')

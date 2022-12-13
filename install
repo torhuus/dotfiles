@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+mkdir -p ~/.config
 
-echo "Setting up kitty config"
+#echo "Setting up kitty config"
 # Kitty config setup
-rm -rf $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
+#rm -rf $HOME/.config/kitty
+#ln -s $DOTFILES/kitty $HOME/.config/kitty
 
-echo "Downloading vim.plug"
-# Install VIM plug
-sh -c 'curl --silent -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+echo "Downloading Packer"
+# Install Packer plugin manager
+rm -rf  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 
 echo "Setting up nvim config"
 # NVIM config setup
@@ -19,3 +22,16 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 
 
 echo "All done. Remember to run :PlugInstall when opening nvim"
+
+echo "Setting up tmux config"
+rm -rf $HOME/.tmux.conf
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+
+# Neovim config setup
+echo "Setting up neovim config"
+rm -rf $HOME/.config/nvim # Remove current neovim config files
+ln -s $DOTFILES/nvim $HOME/.config/nvim # Symlink config files to .config
+
+
+echo "Completed configuration setup. Happy coding!"
