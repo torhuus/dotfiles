@@ -30,5 +30,6 @@ use "lukas-reineke/indent-blankline.nvim"
       "nvim-treesitter/nvim-treesitter",
       run = ':TSUpdate',
     }
+use 'cohama/lexima.vim'
 
 end)

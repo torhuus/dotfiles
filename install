@@ -21,7 +21,7 @@ rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 
 
-echo "All done. Remember to run :PlugInstall when opening nvim"
+echo "All done. Remember to run :PackerInstall when opening nvim"
 
 echo "Setting up tmux config"
 rm -rf $HOME/.tmux.conf
