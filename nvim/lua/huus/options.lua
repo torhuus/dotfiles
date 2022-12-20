@@ -1,5 +1,5 @@
 -- [[ Setting options ]]
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.mouse = 'a'
