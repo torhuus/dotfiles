@@ -19,9 +19,9 @@ echo "Setting up nvim config"
 # NVIM config setup
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
+echo "Remember to install the plugins using :PackerInstall"
 
 
-echo "All done. Remember to run :PackerInstall when opening nvim"
 
 echo "Setting up tmux config"
 rm -rf $HOME/.tmux.conf
