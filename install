@@ -3,11 +3,6 @@
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 mkdir -p ~/.config
 
-#echo "Setting up kitty config"
-# Kitty config setup
-#rm -rf $HOME/.config/kitty
-#ln -s $DOTFILES/kitty $HOME/.config/kitty
-
 echo "Downloading Packer"
 # Install Packer plugin manager
 rm -rf  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -20,7 +15,6 @@ echo "Setting up nvim config"
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 echo "Remember to install the plugins using :PackerInstall"
-
 
 
 echo "Setting up tmux config"
